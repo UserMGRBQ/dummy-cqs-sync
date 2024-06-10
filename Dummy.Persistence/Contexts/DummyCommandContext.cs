@@ -1,5 +1,12 @@
-﻿namespace Dummy.Persistence.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
-public class DummyCommandContext
+namespace Dummy.Persistence.Contexts;
+
+public class DummyCommandContext(DbContextOptions<DummyCommandContext> opt) : DbContext(opt)
 {
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
 }

@@ -1,5 +1,5 @@
-using DummyConsumer.Consumers;
 using MassTransit;
+using Dummy.Persistence.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +19,10 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
+builder.Services.AddDummyPersistence();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Synchronizing databases...");
 
 app.Run();
