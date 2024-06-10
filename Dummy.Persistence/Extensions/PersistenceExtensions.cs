@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Dummy.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Dummy.Persistence.Extensions;
 
@@ -12,8 +15,8 @@ public static class PersistenceExtensions
         services.AddDbContext<DummyQueryContext>((context, options) =>
             options.UseSqlServer(context.GetRequiredService<IConfiguration>().GetConnectionString("DummyQueryConnection")));
 
-        services.AddScoped<ICommandUserRepository, CommandUserRepository>();
-        services.AddScoped<IQueryUserRepository, QueryUserRepository>();
+        //services.AddScoped<ICommandUserRepository, CommandUserRepository>();
+        //services.AddScoped<IQueryUserRepository, QueryUserRepository>();
 
         return services;
     }
