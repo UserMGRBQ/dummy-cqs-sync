@@ -8,5 +8,11 @@ public interface IBaseQueryRepository<T, Tid>
 
     IQueryable<T> GetAll();
 
+    Task AddAsync(T entity);
+
+    Task RemoveAsync(T entity);
+
+    Task UpdateAsync(T entity);
+
     Task Commit();
 }

@@ -20,6 +20,24 @@ public class BaseQueryRepository<T, Tid>(DbContext context) : IBaseQueryReposito
         return DbSet;
     }
 
+    public async Task AddAsync(T entity)
+    {
+        await DbSet.AddAsync(entity);
+        await Db.SaveChangesAsync();
+    }
+
+    public async Task RemoveAsync(T entity)
+    {
+        DbSet.Remove(entity);
+        await Db.SaveChangesAsync();
+    }
+
+    public async Task UpdateAsync(T entity)
+    {
+        DbSet.Update(entity);
+        await Db.SaveChangesAsync();
+    }
+
     public async Task Commit()
     {
         await Db.SaveChangesAsync();

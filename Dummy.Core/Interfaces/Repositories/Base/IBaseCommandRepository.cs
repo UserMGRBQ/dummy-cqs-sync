@@ -4,6 +4,10 @@ public interface IBaseCommandRepository<T, Tid>
     where T : class
     where Tid : IEquatable<Tid>
 {
+    Task<T> GetByIdAsync(Tid id);
+
+    IQueryable<T> GetAll();
+
     Task AddAsync(T entity);
 
     Task RemoveAsync(T entity);
