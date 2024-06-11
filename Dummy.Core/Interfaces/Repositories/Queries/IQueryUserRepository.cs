@@ -1,5 +1,8 @@
-﻿namespace Dummy.Core.Interfaces.Repositories.Queries;
+﻿using Dummy.Core.Interfaces.Repositories.Base;
+using Dummy.Core.Models;
 
-public interface IQueryUserRepository
+namespace Dummy.Core.Interfaces.Repositories.Queries;
+
+public interface IQueryUserRepository : IBaseQueryRepository<UserModel, int>
 {
 }

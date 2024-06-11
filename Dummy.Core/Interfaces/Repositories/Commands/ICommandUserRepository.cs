@@ -1,5 +1,8 @@
-﻿namespace Dummy.Core.Interfaces.Repositories.Commands;
+﻿using Dummy.Core.Interfaces.Repositories.Base;
+using Dummy.Core.Models;
 
-public interface ICommandUserRepository
+namespace Dummy.Core.Interfaces.Repositories.Commands;
+
+public interface ICommandUserRepository : IBaseCommandRepository<UserModel, int>
 {
 }
