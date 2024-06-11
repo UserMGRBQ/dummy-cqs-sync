@@ -14,4 +14,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Dummy.Core\Dummy.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\Base\" />
+    <Folder Include="Repositories\Commands\" />
+    <Folder Include="Repositories\Queries\" />
+  </ItemGroup>
 </Project>
