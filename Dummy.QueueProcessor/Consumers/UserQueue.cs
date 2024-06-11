@@ -1,4 +1,5 @@
-﻿using MassTransit;
+﻿using Dummy.Core.Models;
+using MassTransit;
 using System.Text.Json;
 
 public class UserQueue : IConsumer<UserModel>
