@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,11 +13,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Dummy.Core\Dummy.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Repositories\Base\" />
-    <Folder Include="Repositories\Commands\" />
-    <Folder Include="Repositories\Queries\" />
   </ItemGroup>
 </Project>
