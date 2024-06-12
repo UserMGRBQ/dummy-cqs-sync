@@ -1,5 +1,6 @@
 using MassTransit;
 using Dummy.Persistence.Extensions;
+using Dummy.QueueProcessor.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 

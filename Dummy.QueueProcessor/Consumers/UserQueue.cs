@@ -2,21 +2,23 @@
 using Dummy.Core.Interfaces.Repositories.Queries;
 using Dummy.Core.Models;
 using MassTransit;
-using System.Text.Json;
+
+namespace Dummy.QueueProcessor.Consumers;
 
 public class UserQueue(ICommandUserRepository command, IQueryUserRepository query) : IConsumer<UserModel>
 {
     private readonly ICommandUserRepository _commandUserRepository = command;
     private readonly IQueryUserRepository _queryUserRepository = query;
 
-    public Task Consume(ConsumeContext<UserModel> context)
+    public async Task Consume(ConsumeContext<UserModel> context)
     {
-        var user = context.Message;
-
-        var users = _commandUserRepository.GetAll();
-
-        Console.WriteLine(JsonSerializer.Serialize(user));
-
-        return Task.CompletedTask;
+        try
+        {
+            await _queryUserRepository.AddAsync(context.Message);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
 }
